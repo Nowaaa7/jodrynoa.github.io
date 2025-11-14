@@ -33,7 +33,27 @@
   .navbar-brand{ color: #fff; text-shadow: 0 2px 10px rgba(0,0,0,0.15); }
   .nav-link{ color: rgba(255,255,255,0.92) !important; margin-right: .5rem; }
   .nav-link.active{ font-weight:600; text-decoration:underline }
-  
+  .body-light #mainNavbar {
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 6px 18px rgba(12,18,30,0.06);
+}
+
+.body-light .navbar-brand {
+  color: var(--text-dark); /* Ta variable de texte sombre */
+  text-shadow: none; /* Enlève l'ombre du texte blanc */
+}
+
+.body-light .nav-link {
+  color: var(--text-dark) !important; /* Force le texte sombre */
+}
+
+/* Garde le lien actif souligné, mais avec la bonne couleur */
+.body-light .nav-link.active {
+  color: var(--text-dark) !important; 
+  font-weight: 600;
+  text-decoration: underline;
+}
   /* Hero */
   .hero{
     min-height: 90vh;
