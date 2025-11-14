@@ -9,15 +9,17 @@ document.addEventListener('DOMContentLoaded', function(){
       if(el) el.textContent = y;
     });
   
-    // Navbar scroll effect
-    const navbar = document.getElementById('mainNavbar');
-    function onScrollNav(){
-      if(window.scrollY > 30) navbar.classList.add('scrolled');
-      else navbar.classList.remove('scrolled');
+   // Navbar scroll effect
+    const navbar = document.getElementById('mainNavbar');
+    // 💡 On n'active l'effet de scroll QUE si on n'est PAS sur une page "body-light"
+    if (navbar && !document.body.classList.contains('body-light')) {
+      function onScrollNav(){
+        if(window.scrollY > 30) navbar.classList.add('scrolled');
+        else navbar.classList.remove('scrolled');
+      }
+      onScrollNav();
+      window.addEventListener('scroll', onScrollNav);
     }
-    onScrollNav();
-    window.addEventListener('scroll', onScrollNav);
-  
     // IntersectionObserver for reveal animations
     const reveals = document.querySelectorAll('.reveal');
     const obs = new IntersectionObserver((entries, observer) => {
