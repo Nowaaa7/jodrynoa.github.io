@@ -1,172 +1,205 @@
 /* Base */
 :root{
-    --gradient-1: linear-gradient(135deg,#2b8cff 0%, #ff6bd6 50%, #7a4bff 100%);
-    --gradient-2: linear-gradient(90deg, rgba(43,140,255,0.95), rgba(255,107,214,0.92));
-    --glass: rgba(255,255,255,0.06);
-    --text-dark: #0b1220;
-    --muted: #6c757d;
-    --card-bg: rgba(255,255,255,0.85);
-  }
-  
-  *{box-sizing:border-box}
-  body{
-    font-family: 'Poppins', sans-serif;
-    color: var(--text-dark);
-    margin:0;
-    background: linear-gradient(180deg,#f8f9ff 0%, #fff 100%);
-    -webkit-font-smoothing:antialiased;
-    -moz-osx-font-smoothing:grayscale;
-    scroll-behavior:smooth;
-  }
-  
-  /* NAVBAR */
-  #mainNavbar{
-    background: transparent;
-    transition: background 300ms ease, box-shadow 300ms ease, transform 300ms ease;
-    padding: 0.9rem 0;
-  }
-  #mainNavbar.scrolled{
-    background: rgba(255,255,255,0.06);
-    backdrop-filter: blur(6px);
-    box-shadow: 0 6px 18px rgba(12,18,30,0.06);
-  }
-  .navbar-brand{ color: #fff; text-shadow: 0 2px 10px rgba(0,0,0,0.15); }
-  .nav-link{ color: rgba(255,255,255,0.92) !important; margin-right: .5rem; }
-  .nav-link.active{ font-weight:600; text-decoration:underline }
-  .body-light #mainNavbar {
-  background: rgba(255,255,255,0.06);
+    /* * NOUVELLE PALETTE (Rouge / Noir / Blanc)
+    */
+    --primary-red: #c9182c;         /* Rouge vif pour les actions */
+    --primary-red-dark: #a40d1f;  /* Rouge sombre pour les dégradés */
+    --text-black: #0b1220;        /* Noir "doux" pour le texte */
+    --bg-light-gray: #f8f9fa;      /* Fond gris très clair */
+    --bg-white: #ffffff;          /* Fond blanc pour les cartes */
+
+    /* NOUVEAUX DÉGRADÉS */
+    --gradient-1: linear-gradient(135deg, #1e1e1e 0%, var(--primary-red-dark) 100%);
+    --gradient-2: linear-gradient(90deg, rgba(30,30,30,0.95), rgba(164,13,31,0.92));
+
+    /* Inchangés */
+    --glass: rgba(255,255,255,0.06);
+    --muted: #6c757d;
+}
+  
+*{box-sizing:border-box}
+body{
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-black); /* -> Noir */
+    margin:0;
+    background: var(--bg-light-gray); /* -> Gris clair */
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    scroll-behavior:smooth;
+}
+  
+/* NAVBAR */
+#mainNavbar{
+    background: transparent;
+    transition: background 300ms ease, box-shadow 300ms ease, transform 300ms ease;
+    padding: 0.9rem 0;
+}
+#mainNavbar.scrolled{
+    background: var(--glass);
+    backdrop-filter: blur(6px);
+    box-shadow: 0 6px 18px rgba(12,18,30,0.06);
+}
+.navbar-brand{ color: var(--bg-white); text-shadow: 0 2px 10px rgba(0,0,0,0.15); }
+.nav-link{ color: rgba(255,255,255,0.92) !important; margin-right: .5rem; }
+.nav-link.active{ font-weight:600; text-decoration:underline }
+
+/* CORRECTION pour les pages "body-light" (CV, Portfolio...) */
+.body-light #mainNavbar {
+  background: var(--glass);
   backdrop-filter: blur(6px);
   box-shadow: 0 6px 18px rgba(12,18,30,0.06);
 }
-
 .body-light .navbar-brand {
-  color: var(--text-dark); /* Ta variable de texte sombre */
-  text-shadow: none; /* Enlève l'ombre du texte blanc */
+  color: var(--text-black); /* -> Noir */
+  text-shadow: none;
 }
-
 .body-light .nav-link {
-  color: var(--text-dark) !important; /* Force le texte sombre */
+  color: var(--text-black) !important; /* -> Noir */
 }
-
-/* Garde le lien actif souligné, mais avec la bonne couleur */
 .body-light .nav-link.active {
-  color: var(--text-dark) !important; 
+  color: var(--text-black) !important; 
   font-weight: 600;
   text-decoration: underline;
 }
-  /* Hero */
-  .hero{
-    min-height: 90vh;
-    padding-top:4.5rem;
-    background: var(--gradient-1);
-    color: #fff;
-    position:relative;
-    overflow:hidden;
-  }
-  .section-gradient{
-    background: var(--gradient-1);
-    background-size: 400% 400%;
-    animation: gradientMove 12s ease infinite;
-  }
-  .section-gradient-alt{
-    background: linear-gradient(90deg, rgba(42,139,255,0.9), rgba(138,75,255,0.85));
-    background-size: 200% 200%;
-    animation: gradientMove 14s ease infinite;
-  }
-  @keyframes gradientMove{
-    0%{background-position:0% 50%}
-    50%{background-position:100% 50%}
-    100%{background-position:0% 50%}
-  }
-  
-  /* Profile card */
-  .profile-card{
-    background: rgba(255,255,255,0.06);
-    padding: 1.6rem 1.4rem;
-    border-radius: 14px;
-    display:inline-block;
-    width: 100%;
-    max-width: 320px;
-    transition: transform 300ms ease, box-shadow 300ms ease;
-  }
-  .profile-card:hover{ transform: translateY(-6px); box-shadow: 0 12px 30px rgba(11,18,32,0.18); }
-  .profile-img{ width:120px; height:120px; object-fit:cover; border-radius:50%; border: 4px solid rgba(255,255,255,0.12); }
-  
-  /* Buttons */
-  .btn-primary{
-    background: linear-gradient(90deg,#ff6b6b 0%, #ff4c8a 100%);
-    border: none;
-    box-shadow: 0 8px 22px rgba(255,92,105,0.16);
-    padding: 10px 18px;
-    transition: transform 180ms ease, box-shadow 180ms ease;
-  }
-  .btn-primary:hover{ transform: translateY(-3px); box-shadow:0 18px 30px rgba(255,92,105,0.18) }
-  .btn-outline-light{
-    color: #fff;
-    border-color: rgba(255,255,255,0.2);
-  }
-  
-  /* Info cards */
-  .info-card{
+
+  
+/* Hero */
+.hero{
+    min-height: 90vh;
+    padding-top:4.5rem;
+    background: var(--gradient-1); /* -> Noir/Rouge */
+    color: var(--bg-white);
+    position:relative;
+    overflow:hidden;
+}
+.section-gradient{
+    background: var(--gradient-1); /* -> Noir/Rouge */
+    background-size: 400% 400%;
+    animation: gradientMove 12s ease infinite;
+}
+.section-gradient-alt{
+    background: var(--primary-red); /* -> Rouge vif */
+    background-size: 200% 200%;
+    animation: gradientMove 14s ease infinite;
+}
+@keyframes gradientMove{
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+  
+/* Profile card (sur le Héro) */
+.profile-card{
+    background: var(--glass);
+    padding: 1.6rem 1.4rem;
+    border-radius: 14px;
+    display:inline-block;
+    width: 100%;
+    max-width: 320px;
+    transition: transform 300ms ease, box-shadow 300ms ease;
+}
+.profile-card:hover{ transform: translateY(-6px); box-shadow: 0 12px 30px rgba(11,18,32,0.18); }
+.profile-img{ width:120px; height:120px; object-fit:cover; border-radius:50%; border: 4px solid rgba(255,255,255,0.12); }
+  
+/* Buttons */
+.btn-primary{
+    background: var(--primary-red); /* -> Rouge vif */
+    border: none;
+    /* Ombre rouge adaptée */
+    box-shadow: 0 8px 22px rgba(201, 24, 44, 0.22);
+    padding: 10px 18px;
+    transition: transform 180ms ease, box-shadow 180ms ease;
+}
+.btn-primary:hover{ 
+    transform: translateY(-3px); 
+    box-shadow:0 18px 30px rgba(201, 24, 44, 0.28); 
+}
+.btn-outline-light{
+    color: #fff;
+    border-color: rgba(255,255,255,0.2);
+}
+  
+/* Info cards (Accueil) */
+.info-card{
     border-radius: 12px;
-    background: #fff; /* Un fond blanc solide */
-    color: var(--text-dark); /* Ta variable pour le texte sombre */
+    background: var(--bg-white); /* -> Blanc */
+    color: var(--text-black); /* -> Noir */
   }
-  
-  /* Cards in portfolio */
-  .card{ border-radius: 12px; }
-  .hover-raise{ transition: transform 260ms ease, box-shadow 260ms ease; }
-  .hover-raise:hover{ transform: translateY(-8px); box-shadow: 0 18px 40px rgba(12,18,30,0.12) }
-  
-  /* Timeline & CV */
-  .sticky-card{ position: sticky; top: 110px; border-radius: 12px; overflow: hidden; }
-  .timeline-item{ background: #fff; padding: 14px; border-radius: 8px; margin-bottom: 8px; box-shadow: 0 6px 18px rgba(12,18,30,0.04) }
-  
-  /* Footer */
-  .site-footer{ background: transparent; color: #0b1220; margin-top: 2rem; }
-  .site-footer a{ color: inherit; text-decoration: underline; }
-  
-  /* Back to top button */
-  #backToTop, #backToTop2, #backToTop3{
-    position: fixed;
-    right: 18px;
-    bottom: 18px;
-    width:44px; height:44px;
-    border-radius: 10px;
-    border:none;
-    display:none;
-    align-items:center; justify-content:center;
-    cursor:pointer;
-    box-shadow: 0 10px 24px rgba(10,20,40,0.12);
-    background: linear-gradient(90deg,#7a4bff,#ff6bd6);
-    color:#fff;
-    z-index: 1200;
-  }
-  
-  /* Reveal animation helpers */
-  .reveal{
-    opacity:0;
-    transform: translateY(12px) scale(0.995);
-    transition: opacity 600ms ease, transform 600ms cubic-bezier(.2,.9,.25,1);
-  }
-  .reveal.visible{ opacity:1; transform:none; }
-  .reveal.delay-1{ transition-delay: 120ms; }
-  .reveal.delay-2{ transition-delay: 220ms; }
-  .reveal.delay-3{ transition-delay: 320ms; }
-  .reveal.delay-4{ transition-delay: 420ms; }
-  .reveal.delay-5{ transition-delay: 520ms; }
-  
-  /* Subtle text gradient for the name */
-  .name-gradient{
-    background: linear-gradient(90deg,#fff 0%, rgba(255,255,255,0.85) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-  
-  /* Responsiveness tweaks */
-  @media (max-width: 991px){
-    .profile-card{ max-width: 260px; margin-left:auto; margin-right:auto; }
-    #mainNavbar{ padding:.6rem 0; }
-    .sticky-card{ position: static; }
-  }
-  
+  
+/* Cards in portfolio */
+.card{ 
+    border-radius: 12px; 
+    background: var(--bg-white); /* Assure un fond blanc */
+    border: none; /* Enlève la bordure par défaut */
+}
+.hover-raise{ transition: transform 260ms ease, box-shadow 260ms ease; }
+.hover-raise:hover{ transform: translateY(-8px); box-shadow: 0 18px 40px rgba(12,18,30,0.12) }
+  
+/* Timeline & CV */
+.sticky-card{ 
+    position: sticky; 
+    top: 110px; 
+    border-radius: 12px; 
+    overflow: hidden;
+    background: var(--bg-white); /* -> Blanc */
+    border: none;
+}
+.timeline-item{ 
+    background: var(--bg-white); /* -> Blanc */
+    padding: 14px; 
+    border-radius: 8px; 
+    margin-bottom: 8px; 
+    box-shadow: 0 6px 18px rgba(12,18,30,0.04) 
+}
+  
+/* Footer */
+.site-footer{ 
+    background: transparent; 
+    color: var(--text-black); /* -> Noir */
+    margin-top: 2rem; 
+}
+.site-footer a{ color: inherit; text-decoration: underline; }
+  
+/* Back to top button */
+#backToTop { /* ID unique standardisé */
+    position: fixed;
+    right: 18px;
+    bottom: 18px;
+    width:44px; height:44px;
+    border-radius: 10px;
+    border:none;
+    display:none;
+    align-items:center; justify-content:center;
+    cursor:pointer;
+    box-shadow: 0 10px 24px rgba(10,20,40,0.12);
+    background: var(--primary-red-dark); /* -> Rouge sombre */
+    color:#fff;
+    z-index: 1200;
+}
+  
+/* Reveal animation helpers */
+.reveal{
+    opacity:0;
+    transform: translateY(12px) scale(0.995);
+    transition: opacity 600ms ease, transform 600ms cubic-bezier(.2,.9,.25,1);
+}
+.reveal.visible{ opacity:1; transform:none; }
+.reveal.delay-1{ transition-delay: 120ms; }
+.reveal.delay-2{ transition-delay: 220ms; }
+.reveal.delay-3{ transition-delay: 320ms; }
+.reveal.delay-4{ transition-delay: 420ms; }
+.reveal.delay-5{ transition-delay: 520ms; }
+  
+/* Subtle text gradient for the name (sur le Héro) */
+.name-gradient{
+    background: linear-gradient(90deg,#fff 0%, rgba(255,255,255,0.85) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+  
+/* Responsiveness tweaks */
+@media (max-width: 991px){
+    .profile-card{ max-width: 260px; margin-left:auto; margin-right:auto; }
+    #mainNavbar{ padding:.6rem 0; }
+    .sticky-card{ position: static; }
+}
