@@ -88,10 +88,10 @@
   
   /* Info cards */
   .info-card{
-    border-radius: 12px;
-    background: rgba(255,255,255,0.06);
-    color: #fff;
-  }
+    border-radius: 12px;
+    background: #fff; /* Un fond blanc solide */
+    color: var(--text-dark); /* Ta variable pour le texte sombre */
+  }
   
   /* Cards in portfolio */
   .card{ border-radius: 12px; }
