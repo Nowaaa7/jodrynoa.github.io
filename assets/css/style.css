@@ -1,6 +1,7 @@
 /* Base */
 :root{
-    /* * NOUVELLE PALETTE (Rouge / Noir / Blanc)
+    /*
+    * NOUVELLE PALETTE (Rouge / Noir / Blanc)
     */
     --primary-red: #c9182c;         /* Rouge vif pour les actions */
     --primary-red-dark: #a40d1f;  /* Rouge sombre pour les dégradés */
@@ -87,14 +88,14 @@ body{
     50%{background-position:100% 50%}
     100%{background-position:0% 50%}
 }
-  
+ s 
 /* Profile card (sur le Héro) */
 .profile-card{
     background: var(--glass);
     padding: 1.6rem 1.4rem;
     border-radius: 14px;
     display:inline-block;
-    width: 100%;
+  F  width: 100%;
     max-width: 320px;
     transition: transform 300ms ease, box-shadow 300ms ease;
 }
